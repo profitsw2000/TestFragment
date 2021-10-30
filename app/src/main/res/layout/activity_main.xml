@@ -7,8 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:text="Add Fragment" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="36sp"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:text="TextView" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/first_fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 </LinearLayout>
