@@ -98,4 +98,9 @@ public class FirstFragment extends Fragment {
         super.onDetach();
         Log.d(TAG, FRAGMENT_NAME + " onDetach") ;
     }
+
+    @Override
+    public String toString() {
+        return FirstFragment.class.getSimpleName();
+    }
 }
