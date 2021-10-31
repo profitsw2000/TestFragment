@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String ACTIVITY_NAME = MainActivity.class.getSimpleName()    ;
     private static final String TAG = COMMON_TAG    ;
     Button buttonAddFragment    ;
+    Button buttonPopStack    ;
+    Button buttonRemove    ;
     TextView textView   ;
     FragmentManager fragmentManager ;
     FragmentTransaction fragmentTransaction ;
@@ -28,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, ACTIVITY_NAME + " onCreate") ;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttonAddFragment = findViewById(R.id.button)  ;
+        buttonAddFragment = findViewById(R.id.button_add)  ;
+        buttonPopStack = findViewById(R.id.button_pop)  ;
+        buttonRemove = findViewById(R.id.button_remove) ;
         textView = findViewById(R.id.textView)  ;
         fragmentManager = getSupportFragmentManager()   ;
 
@@ -53,6 +57,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addFragment();
+            }
+        });
+
+        buttonPopStack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentManager.popBackStack();
+            }
+        });
+
+        buttonRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = fragmentManager.findFragmentById(R.id.first_fragment)   ;
+                if (fragment != null) {
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.remove(fragment);
+                    fragmentTransaction.addToBackStack("Remove " + fragment.toString()) ;
+                    fragmentTransaction.commit();
+                    StringBuilder backStackEntryMessage = new StringBuilder("Current stack is: " + fragmentManager.getBackStackEntryCount() + "\n");
+
+                    for (int index = (fragmentManager.getBackStackEntryCount() - 1); index >= 0; index--) {
+                        FragmentManager.BackStackEntry entry = fragmentManager.getBackStackEntryAt(index);
+                        backStackEntryMessage.append(entry.getName() + "\n");
+                    }
+                    Log.d(BS_TAG, backStackEntryMessage.toString());
+                }
             }
         });
     }
@@ -90,17 +121,6 @@ public class MainActivity extends AppCompatActivity {
     private void addFragment(){
         Fragment fragment   ;
 
-/*        switch (fragmentManager.getBackStackEntryCount()) {
-            case 0: fragment = new FirstFragment()    ;
-                break;
-            case 1: fragment = new SecondFragment()    ;
-                break;
-            case 2: fragment = new ThirdFragment()    ;
-                break;
-            default: fragment = new FirstFragment()    ;
-                break;
-        }*/
-
         fragment = fragmentManager.findFragmentById(R.id.first_fragment)    ;
         if (fragment instanceof FirstFragment) {
             fragment = new SecondFragment() ;
@@ -112,29 +132,9 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentTransaction = fragmentManager.beginTransaction()    ;
         fragmentTransaction.replace(R.id.first_fragment, fragment) ;
-        fragmentTransaction.addToBackStack(fragment.toString())   ;
+        fragmentTransaction.addToBackStack("Replace " + fragment.toString())   ;
         fragmentTransaction.commit()    ;
     }
 
-    @Override
-    public void onBackPressed() {
-        Fragment fragment = fragmentManager.findFragmentById(R.id.first_fragment)   ;
-        if (fragment != null) {
-            Log.d(BS_TAG, "before" + fragment.toString() + "\n")  ;
-            fragmentTransaction = fragmentManager.beginTransaction()    ;
-            fragmentTransaction.remove(fragment)    ;
-            fragmentTransaction.commit()    ;
-            Log.d(BS_TAG, "after" + fragment.toString() + "\n")  ;
-            StringBuilder backStackEntryMessage = new StringBuilder("Current stack is: " + fragmentManager.getBackStackEntryCount() + "\n");
 
-            for (int index = (fragmentManager.getBackStackEntryCount() - 1); index >= 0; index--) {
-                FragmentManager.BackStackEntry entry = fragmentManager.getBackStackEntryAt(index)   ;
-                backStackEntryMessage.append(entry.getName() + "\n")    ;
-            }
-            Log.d(BS_TAG, backStackEntryMessage.toString()) ;
-        }
-        else {
-            super.onBackPressed();
-        }
-    }
 }
