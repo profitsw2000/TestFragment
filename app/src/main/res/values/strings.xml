@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">TestFragment</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">First fragment</string>
+    <string name="hello_blank_fragment">Fragment 1</string>
+    <string name="sec_frg">Fragment 2</string>
+    <string name="thrd_frg">Fragment 3</string>
+    <string name="add_button">Add</string>
+    <string name="pop_button">Pop</string>
+    <string name="remove_button">Remove</string>
 </resources>
