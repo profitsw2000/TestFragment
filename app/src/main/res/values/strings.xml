@@ -2,4 +2,60 @@
     <string name="app_name">TestFragment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">First fragment</string>
+
+    <string-array name="footbal_clubs">
+        <item>Barcelona</item>
+        <item>Bayern Munich</item>
+        <item>Borussia Dortmund</item>
+        <item>Chelsea</item>
+        <item>Inter</item>
+        <item>Juventus</item>
+        <item>Liverpool</item>
+        <item>Milan</item>
+        <item>Real</item>
+    </string-array>
+    
+    <string name="Barcelona">
+        Futbol Club Barcelona, commonly referred to as Barcelona and colloquially known as Barça, is a Spanish professional football club based in Barcelona, Spain, that competes in La Liga, the top flight of Spanish football.
+        Founded in 1899 by a group of Swiss, Spanish, German and English footballers led by Joan Gamper, the club has become a symbol of Catalan culture and Catalanism, hence the motto "Més que un club" ("More than a club"). Unlike many other football clubs, the supporters own and operate Barcelona. It is the fourth-most valuable sports team in the world, worth $4.06 billion, and the world's richest football club in terms of revenue, with an annual turnover of €840.8 million. The official Barcelona anthem is the "Cant del Barça", written by Jaume Picas and Josep Maria Espinàs. Barcelona traditionally play in dark shades of blue and red stripes, leading to the nickname Blaugrana.
+    </string>
+
+    <string name="Bayern">
+        Fußball-Club Bayern München , commonly known as FC Bayern München, FCB, Bayern Munich, or FC Bayern, is a German professional sports club based in Munich, Bavaria. It is best known for its professional football team, which plays in the Bundesliga, the top tier of the German football league system. Bayern is the most successful club in German football history, having won a record 31 national titles, including nine consecutively since 2013, and 20 national cups, along with numerous European honours.
+        FC Bayern Munich was founded in 1900 by 11 football players, led by Franz John. Although Bayern won its first national championship in 1932, the club was not selected for the Bundesliga at its inception in 1963. The club had its period of greatest success in the mid-1970s when, under the captaincy of Franz Beckenbauer, it won the European Cup three consecutive times (1974–1976).
+    </string>
+
+    <string name="Borussia">
+        Borussia Dortmund, BVB, or simply Dortmund, is a German professional sports club based in Dortmund, North Rhine-Westphalia. It is best known for its mens professional football team, which plays in the Bundesliga, the top tier of the German football league system. The club have won eight league championships, five DFB-Pokals, one UEFA Champions League, one Intercontinental Cup, and one UEFA Cup Winners Cup.
+        Founded in 1909 by eighteen football players from Dortmund, the football team is part of a large membership-based sports club with more than 145,000 members, making Borussia Dortmund the second largest sports club by membership in Germany.
+    </string>
+
+    <string name="Chelsea">
+        Chelsea Football Club is an English professional football club based in Fulham, West London. Founded in 1905, the club competes in the Premier League, the top division of English football. Chelsea are among Englands most successful clubs, having won over thirty competitive honours, including six league titles and eight European trophies. Their home ground is Stamford Bridge.
+        Chelsea won their first major honour, the League championship, in 1955. The club won the FA Cup for the first time in 1970 and their first European honour, the Cup Winners' Cup, in 1971. After a period of decline in the late 1970s and 1980s, the club enjoyed a revival in the 1990s and had more success in cup competitions.
+    </string>
+
+    <string name="Inter">
+        Football Club Internazionale Milano, commonly referred to as Internazionale or simply Inter, and known as Inter Milan outside Italy, is an Italian professional football club based in Milan, Lombardy. Inter is the only Italian side to have always competed in the top flight of Italian football since its debut in 1909.
+        Founded in 1908 following a schism within the Milan Cricket and Football Club (now AC Milan), Inter won its first championship in 1910. Since its formation, the club has won 31 domestic trophies, including 19 league titles, 7 Coppa Italia and 5 Supercoppa Italiana.
+    </string>
+
+    <string name="Juventus">
+        Juventus Football Club, colloquially known as Juventus and Juve, is a professional football club based in Turin, Piedmont, Italy, that competes in the Serie A, the top tier of the Italian football league system. Founded in 1897 by a group of Torinese students, the club has worn a black and white striped home kit since 1903 and has played home matches in different grounds around its city, the latest being the 41,507-capacity Juventus Stadium. Nicknamed Vecchia Signora ("the Old Lady"), the club has won 36 official league titles, 14 Coppa Italia titles and nine Supercoppa Italiana titles, being the record holder for all these competitions; two Intercontinental Cups, two European Cups / UEFA Champions Leagues, one European Cup Winners' Cup, a joint national record of three UEFA Cups, two UEFA Super Cups and a joint national record of one UEFA Intertoto Cup.
+    </string>
+
+    <string name="Liverpool">
+        Liverpool Football Club is a professional football club in Liverpool, England, that competes in the Premier League, the top tier of English football. Domestically, the club has won nineteen League titles, seven FA Cups, a record eight League Cups and fifteen FA Community Shields. In international competitions, the club has won six European Cups, more than any other English club, three UEFA Cups, four UEFA Super Cups (also English records) and one FIFA Club World Cup.
+        Founded in 1892, the club joined the Football League the following year and has played at Anfield since its formation. Liverpool established itself as a major force in English and European football in the 1970s and 1980s, when Bill Shankly, Bob Paisley, Joe Fagan and Kenny Dalglish led the club to a combined eleven League titles and four European Cups. Liverpool won two further European Cups in 2005 and 2019 under the management of Rafael Benítez and Jürgen Klopp, respectively
+    </string>
+
+    <string name="Milan">
+        Associazione Calcio Milan, commonly referred to as AC Milan or simply Milan, is a professional football club in Milan, Italy, founded in 1899. The club has spent its entire history, with the exception of the 1980–81 and 1982–83 seasons, in the top flight of Italian football, known as Serie A since 1929–30.
+        AC Milans 18 FIFA and UEFA trophies is the fourth highest out of any club (joint with Boca Juniors), and the most out of any Italian club. Milan has won a joint record three Intercontinental Cups and one FIFA Club World Cup, seven European Cup/Champions League titles (Italian record), the UEFA Super Cup a joint record five times and the Cup Winners' Cup twice. With 18 league titles, Milan is the third most successful club in Serie A, behind local rivals Inter Milan (19 league titles) and Juventus (36 league titles). They have also won the Coppa Italia five times, and the Supercoppa Italiana seven.
+    </string>
+
+    <string name="Real">
+        Real Madrid Club de Fútbol, meaning Royal Madrid Football Club), commonly referred to as Real Madrid, is a Spanish professional football club based in Madrid.
+        Founded on 6 March 1902 as Madrid Football Club, the club has traditionally worn a white home kit since inception. The honorific title real is Spanish for "royal" and was bestowed to the club by King Alfonso XIII in 1920 together with the royal crown in the emblem. The team has played its home matches in the 81,044-capacity Santiago Bernabéu Stadium in downtown Madrid since 1947. Unlike most European sporting entities, Real Madrid's members (socios) have owned and operated the club throughout its history.
+    </string>
 </resources>
