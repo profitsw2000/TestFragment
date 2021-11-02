@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity implements FragmentActionLis
         setContentView(R.layout.activity_main);
 
         fragmentManager = getSupportFragmentManager()   ;
-        addFootballClubsFragment();
+        if (savedInstanceState == null) {
+            addFootballClubsFragment();
+        }
     }
 
     private void addFootballClubsFragment() {

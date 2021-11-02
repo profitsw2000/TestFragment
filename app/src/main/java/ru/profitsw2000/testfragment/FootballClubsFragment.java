@@ -3,6 +3,7 @@ package ru.profitsw2000.testfragment;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -37,9 +38,15 @@ public class FootballClubsFragment extends Fragment {
     }
 
     @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if (savedInstanceState != null) this.fragmentActionListener = (MainActivity)getActivity()   ;
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Footbal Clubs");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Select football club");
     }
 
     public void setFragmentActionListener(FragmentActionListener fragmentActionListener) {
