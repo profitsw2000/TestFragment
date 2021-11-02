@@ -56,7 +56,10 @@ public class FootballClubsFragment extends Fragment {
 
         fcListView.setOnItemClickListener((parent, view, position, id) -> {
             if (fragmentActionListener != null) {
-                fragmentActionListener.onClubSelected(clubs[position]);
+                Bundle bundle = new Bundle()    ;
+                bundle.putString(FragmentActionListener.KEY_SELECTED_CLUB, clubs[position]);
+                bundle.putInt(FragmentActionListener.ACTION_KEY,FragmentActionListener.ACTION_VALUE_CLUB_SELECTED);
+                fragmentActionListener.onActionPerformed(bundle);
             }
         });
     }
