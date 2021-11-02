@@ -5,8 +5,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CallBackInterface{
 
     FragmentManager fragmentManager ;
     FragmentTransaction fragmentTransaction ;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private void addFootballClubsFragment() {
         fragmentTransaction = fragmentManager.beginTransaction();
         FootballClubsFragment footballClubsFragment = new FootballClubsFragment()   ;
+        footballClubsFragment.setCallBackInterface(this);
         fragmentTransaction.add(R.id.fragment_container, footballClubsFragment) ;
         fragmentTransaction.commit()    ;
     }
@@ -33,5 +35,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.fragment_container, footballClubsFragment) ;
         fragmentTransaction.addToBackStack(null)   ;
         fragmentTransaction.commit()    ;
+    }
+
+    @Override
+    public void callBackMethod() {
+        addFCDescriptionFragment();
     }
 }

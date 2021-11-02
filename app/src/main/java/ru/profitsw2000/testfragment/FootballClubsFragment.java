@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -19,6 +20,8 @@ public class FootballClubsFragment extends Fragment {
     ArrayAdapter<String> fcNamesAdapter ;
     Context context ;
     String[] clubs  ;
+
+    CallBackInterface callBackInterface ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,10 @@ public class FootballClubsFragment extends Fragment {
         super.onResume();
     }
 
+    public void setCallBackInterface(CallBackInterface callBackInterface) {
+        this.callBackInterface = callBackInterface  ;
+    }
+
     private void initUI() {
         context = getContext()  ;
         clubs = getResources().getStringArray(R.array.footbal_clubs)    ;
@@ -46,5 +53,11 @@ public class FootballClubsFragment extends Fragment {
 
         fcNamesAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, clubs)    ;
         fcListView.setAdapter(fcNamesAdapter);
+
+        fcListView.setOnItemClickListener((parent, view, position, id) -> {
+            if (callBackInterface != null) {
+                callBackInterface.callBackMethod();
+            }
+        });
     }
 }
