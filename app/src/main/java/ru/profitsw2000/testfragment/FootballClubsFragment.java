@@ -20,8 +20,7 @@ public class FootballClubsFragment extends Fragment {
     ArrayAdapter<String> fcNamesAdapter ;
     Context context ;
     String[] clubs  ;
-
-    CallBackInterface callBackInterface ;
+    FragmentActionListener fragmentActionListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,10 +39,11 @@ public class FootballClubsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Footbal Clubs");
     }
 
-    public void setCallBackInterface(CallBackInterface callBackInterface) {
-        this.callBackInterface = callBackInterface  ;
+    public void setFragmentActionListener(FragmentActionListener fragmentActionListener) {
+        this.fragmentActionListener = fragmentActionListener  ;
     }
 
     private void initUI() {
@@ -55,8 +55,8 @@ public class FootballClubsFragment extends Fragment {
         fcListView.setAdapter(fcNamesAdapter);
 
         fcListView.setOnItemClickListener((parent, view, position, id) -> {
-            if (callBackInterface != null) {
-                callBackInterface.callBackMethod();
+            if (fragmentActionListener != null) {
+                fragmentActionListener.onClubSelected(clubs[position]);
             }
         });
     }

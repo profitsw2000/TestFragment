@@ -2,6 +2,8 @@ package ru.profitsw2000.testfragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -15,6 +17,7 @@ public class FCDescriptionFragment extends Fragment {
     TextView description    ;
     View rootView   ;
     String fc_name  ;
+    String fcDescription    ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,14 +34,74 @@ public class FCDescriptionFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Bundle bundle = getArguments()  ;
+        fc_name = bundle.getString(FragmentActionListener.KEY_SELECTED_CLUB, "Barcelona")    ;
+        fcDescription = getDescriptionString(fc_name) ;
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
-        fc_name = "Barcelona"   ;
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(fc_name);
-        description.setText(R.string.Barcelona);
+        if (fcDescription != null) description.setText(fcDescription);
     }
 
     private void initUI() {
         description = (TextView) rootView.findViewById(R.id.description_text)   ;
+    }
+
+    private String getDescriptionString(String clubName) {
+        String temp ;
+
+        switch (clubName) {
+            case "Barcelona":
+                temp = getResources().getString(R.string.Barcelona)   ;
+                break;
+
+            case "Bayern Munich":
+                temp = getResources().getString(R.string.Bayern)   ;
+                break;
+
+            case "Borussia Dortmund":
+                temp = getResources().getString(R.string.Borussia)   ;
+                break;
+
+            case "Chelsea":
+                temp = getResources().getString(R.string.Chelsea)   ;
+                break;
+
+            case "Inter":
+                temp = getResources().getString(R.string.Inter)   ;
+                break;
+
+            case "Juventus":
+                temp = getResources().getString(R.string.Juventus)   ;
+                break;
+
+            case "Liverpool":
+                temp = getResources().getString(R.string.Liverpool)   ;
+                break;
+
+            case "Milan":
+                temp = getResources().getString(R.string.Milan)   ;
+                break;
+
+            case "Real":
+                temp = getResources().getString(R.string.Real)   ;
+                break;
+
+            default:
+                temp = getResources().getString(R.string.Barcelona)   ;
+                break;
+        }
+
+        return temp   ;
     }
 }
