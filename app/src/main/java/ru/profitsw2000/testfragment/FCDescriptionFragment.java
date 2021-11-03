@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ public class FCDescriptionFragment extends Fragment {
     View rootView   ;
     String fc_name  ;
     String fcDescription    ;
+    String TAG_DESCR = "Description"    ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,10 +43,26 @@ public class FCDescriptionFragment extends Fragment {
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        Bundle bundle = getArguments()  ;
-        fc_name = bundle.getString(FragmentActionListener.KEY_SELECTED_CLUB, "Barcelona")    ;
-        fcDescription = getDescriptionString(fc_name) ;
+/*        Log.d(TAG_DESCR, "onViewStateRestored")   ;
+        if (savedInstanceState != null) {
+            fc_name = savedInstanceState.getString("selected club", fc_name)    ;
+            fcDescription = getDescriptionString(fc_name) ;
+            Log.d(TAG_DESCR, "savedInstanceState != null: " + fc_name)   ;
+        }
+        else {*/
+            Bundle bundle = getArguments()  ;
+            fc_name = bundle.getString(FragmentActionListener.KEY_SELECTED_CLUB, "Barcelona")    ;
+            fcDescription = getDescriptionString(fc_name) ;
+            Log.d(TAG_DESCR, "savedInstanceState == null: " + fc_name)   ;
+/*        }*/
     }
+
+/*    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("selected club", fc_name);
+        Log.d(TAG_DESCR, fc_name)   ;
+    }*/
 
     @Override
     public void onResume() {

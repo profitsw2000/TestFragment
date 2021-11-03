@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PROJECTS/Android_prj/GeekBrains/TestFragment/app/src/main/res/layout-land/activity_main.xml" value="0.27996422182468694" />
+        <entry key="..\:/PROJECTS/Android_prj/GeekBrains/TestFragment/app/src/main/res/layout-port/activity_main.xml" value="0.15208333333333332" />
         <entry key="..\:/PROJECTS/Android_prj/GeekBrains/TestFragment/app/src/main/res/layout/activity_main.xml" value="0.18045602605863192" />
         <entry key="..\:/PROJECTS/Android_prj/GeekBrains/TestFragment/app/src/main/res/layout/fragment_f_c_description.xml" value="0.1453125" />
         <entry key="..\:/PROJECTS/Android_prj/GeekBrains/TestFragment/app/src/main/res/layout/fragment_first.xml" value="0.140625" />
