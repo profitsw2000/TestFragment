@@ -25,38 +25,14 @@ public class MainActivity extends AppCompatActivity implements FragmentActionLis
 
         fragmentManager = getSupportFragmentManager()   ;
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            if (savedInstanceState == null) {
-                addFootballClubsFragment();
-            }
-            else {
-                addFCDescriptionFragment(R.id.fragment_container, savedInstanceState);
-            }
+            addFootballClubsFragment();
         } else {
             addFootballClubsFragment();
-            if (savedInstanceState == null) {
-                Bundle bundle = new Bundle()    ;
-                bundle.putString(FragmentActionListener.KEY_SELECTED_CLUB, "Barcelona");
-                bundle.putInt(FragmentActionListener.ACTION_KEY,FragmentActionListener.ACTION_VALUE_CLUB_SELECTED);
-                addFCDescriptionFragment(R.id.fragment_container_description, bundle);
-            }
-            else {
-                //String temp = savedInstanceState.getString("selected club")   ;
-                addFCDescriptionFragment(R.id.fragment_container_description, savedInstanceState);
-            }
+            Bundle bundle = new Bundle()    ;
+            bundle.putString(FragmentActionListener.KEY_SELECTED_CLUB, "Barcelona");
+            bundle.putInt(FragmentActionListener.ACTION_KEY,FragmentActionListener.ACTION_VALUE_CLUB_SELECTED);
+            addFCDescriptionFragment(R.id.fragment_container_description, bundle);
         }
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(FragmentActionListener.KEY_SELECTED_CLUB, selectedClub);
-        outState.putInt(FragmentActionListener.ACTION_KEY,FragmentActionListener.ACTION_VALUE_CLUB_SELECTED);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        selectedClub = savedInstanceState.getString(FragmentActionListener.KEY_SELECTED_CLUB, "Barcelona")    ;
     }
 
     private void addFootballClubsFragment() {
@@ -72,8 +48,6 @@ public class MainActivity extends AppCompatActivity implements FragmentActionLis
      * @param bundle - parameters from main fragment
      */
     private void addFCDescriptionFragment(int containerID, Bundle bundle) {
-
-        String tempString = bundle.getString(FragmentActionListener.KEY_SELECTED_CLUB)  ;
 
         FCDescriptionFragment footballClubsFragment = new FCDescriptionFragment()   ;
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -103,6 +77,36 @@ public class MainActivity extends AppCompatActivity implements FragmentActionLis
                 selectedClub = bundle.getString(KEY_SELECTED_CLUB)   ;
                 Log.d(TAG, selectedClub)    ;
                 break;
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setContentView(R.layout.activity_main);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            addFootballClubsFragment();
+            if (selectedClub == null) {
+                Bundle bundle = new Bundle()    ;
+                bundle.putString(FragmentActionListener.KEY_SELECTED_CLUB, "Barcelona");
+                bundle.putInt(FragmentActionListener.ACTION_KEY,FragmentActionListener.ACTION_VALUE_CLUB_SELECTED);
+                addFCDescriptionFragment(R.id.fragment_container_description, bundle);
+            }
+            else {
+                Bundle bundle = new Bundle()    ;
+                bundle.putString(FragmentActionListener.KEY_SELECTED_CLUB, selectedClub);
+                bundle.putInt(FragmentActionListener.ACTION_KEY,FragmentActionListener.ACTION_VALUE_CLUB_SELECTED);
+                addFCDescriptionFragment(R.id.fragment_container_description, bundle);
+            }
+        } else {
+            if (selectedClub == null) {
+                addFootballClubsFragment();
+            }else {
+                Bundle bundle = new Bundle()    ;
+                bundle.putString(FragmentActionListener.KEY_SELECTED_CLUB, selectedClub);
+                bundle.putInt(FragmentActionListener.ACTION_KEY,FragmentActionListener.ACTION_VALUE_CLUB_SELECTED);
+                addFCDescriptionFragment(R.id.fragment_container, bundle);
+            }
         }
     }
 }
